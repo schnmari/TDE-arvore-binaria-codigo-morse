@@ -1,13 +1,13 @@
 public class Node {
-    //ATRIBUTOS
+
+    //Atributos
     private String conteudo;
     private String filhoEsquerdo;
     private String filhoDireito;
 
-    //CONSTRUTOR
+    //Construtor
     public Node(){
     }
-
 
     //Getters' and Setter's
     public String getConteudo() {
@@ -15,13 +15,6 @@ public class Node {
     }
     public void setConteudo(String conteudo) {
         this.conteudo = conteudo;
-    }
-
-    public String getPai() {
-        return pai;
-    }
-    public void setPai(String pai) {
-        this.pai = pai;
     }
 
     public String getFilhoEsquerdo() {
