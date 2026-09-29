@@ -2,12 +2,11 @@ public class Arvore {
 
     public Node noRaiz;
 
-    //Metodo inicializar
+
     public void inicializar(){
         this.noRaiz = new Node();
     }
 
-    //metodo adicionar uma letra de cada vez
     public void adicionar(String morse, String conteudo){
 
         Node noAtual = noRaiz;
@@ -26,14 +25,11 @@ public class Arvore {
                 }
                 noAtual = noAtual.filhoDireito;
 
-            }if (simbolo == ' ') {
-                return;
             }
         }
         noAtual.conteudo = conteudo;
     }
 
-    //Metodo buscar
     public String buscar(String morse){
         Node noAtual = noRaiz;
 
