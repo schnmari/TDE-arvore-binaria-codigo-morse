@@ -1,35 +1,35 @@
 public class Arvore {
 
-    public Node noRaiz;
+    private Node noRaiz;
 
+    public Arvore(){
+    }
 
     public void inicializar(){
         this.noRaiz = new Node();
     }
-
     public void adicionar(String morse, String conteudo){
 
         Node noAtual = noRaiz;
 
         for (char simbolo : morse.toCharArray()) {
             if (simbolo == '.') {
-                if (noAtual.filhoEsquerdo == null){
-                    noAtual.filhoEsquerdo = new Node();
+                if (noAtual.getFilhoEsquerdo() == null){
+                    noAtual.setFilhoEsquerdo(new Node());
                 }
-                noAtual = noAtual.filhoEsquerdo;
+                noAtual = noAtual.getFilhoEsquerdo();
 
             }
             if (simbolo == '-') {
-                if (noAtual.filhoDireito == null){
-                    noAtual.filhoDireito = new Node();
+                if (noAtual.getFilhoDireito() == null){
+                    noAtual.setFilhoDireito(new Node());
                 }
-                noAtual = noAtual.filhoDireito;
+                noAtual = noAtual.getFilhoDireito();
 
             }
         }
-        noAtual.conteudo = conteudo;
+        noAtual.setConteudo(conteudo);
     }
-
     public String buscar(String morse){
         Node noAtual = noRaiz;
 
@@ -37,24 +37,23 @@ public class Arvore {
 
         for (char simbolo : morse.toCharArray()) {
             if (simbolo == '.') {
-                noAtual = noAtual.filhoEsquerdo;
+                noAtual = noAtual.getFilhoEsquerdo();
 
             }else if (simbolo == '-') {
-                noAtual = noAtual.filhoDireito;
+                noAtual = noAtual.getFilhoDireito();
 
             }else if (simbolo == ' ') {
-                palavra = palavra + noAtual.conteudo;
+                palavra = palavra + noAtual.getConteudo();
                 noAtual = noRaiz;
             }
         }
-        return palavra + noAtual.conteudo;
+        return palavra + noAtual.getConteudo();
     }
 }
 
 
-
 //    // METODOS GERAIS - tentando criar toda a arvore automaticamente
-//    public void criarArvoreBinaria(){
+//    public void criarArvoreAlfabeto(){
 //        String[] lista= {"A","B","C","D","E","F","G","H","I","J",
 //                "K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z",
 //                "0","1","2","3","4","5","6","7","8","9"};
