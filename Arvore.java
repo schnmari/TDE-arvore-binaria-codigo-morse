@@ -1,13 +1,13 @@
 public class Arvore {
 
-    private Node noRaiz;
+    public Node noRaiz;
 
     //Metodo inicializar
     public void inicializar(){
         this.noRaiz = new Node();
     }
 
-    //Metodo adicionar uma letra de cada vez
+    //metodo adicionar uma letra de cada vez
     public void adicionar(String morse, String conteudo){
 
         Node noAtual = noRaiz;
@@ -16,22 +16,28 @@ public class Arvore {
             if (simbolo == '.') {
                 if (noAtual.filhoEsquerdo == null){
                     noAtual.filhoEsquerdo = new Node();
-                    noAtual = noAtual.filhoEsquerdo;
                 }
+                noAtual = noAtual.filhoEsquerdo;
+
             }
             if (simbolo == '-') {
                 if (noAtual.filhoDireito == null){
                     noAtual.filhoDireito = new Node();
-                    noAtual = noAtual.filhoDireito;
-                    noAtual.conteudo = conteudo;
                 }
+                noAtual = noAtual.filhoDireito;
+
+            }if (simbolo == ' ') {
+                return;
             }
         }
+        noAtual.conteudo = conteudo;
     }
 
     //Metodo buscar
     public String buscar(String morse){
         Node noAtual = noRaiz;
+
+        String palavra = "";
 
         for (char simbolo : morse.toCharArray()) {
             if (simbolo == '.') {
@@ -39,12 +45,13 @@ public class Arvore {
 
             }else if (simbolo == '-') {
                 noAtual = noAtual.filhoDireito;
-            }
-            if (noAtual == null){
-                return null;
+
+            }else if (simbolo == ' ') {
+                palavra = palavra + noAtual.conteudo;
+                noAtual = noRaiz;
             }
         }
-        return noAtual.conteudo;
+        return palavra + noAtual.conteudo;
     }
 }
 
@@ -56,7 +63,7 @@ public class Arvore {
 //                "K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z",
 //                "0","1","2","3","4","5","6","7","8","9"};
 //
-//        for (String letra : lista){
+//        for (String letra: lista){
 //            //noRaiz.adicionar(letra);
 //        }
 //    }
