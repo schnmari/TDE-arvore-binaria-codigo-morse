@@ -11,7 +11,7 @@ class Main{
         arvoreMorse.inicializar();
 
         arvoreMorse.adicionar(".-", "A");
-        arvoreMorse.adicionar("-..", "B");
+        arvoreMorse.adicionar("-...", "B");
         arvoreMorse.adicionar("-.-.", "C");
         arvoreMorse.adicionar("-..", "D");
         arvoreMorse.adicionar(".", "E");
@@ -54,5 +54,7 @@ class Main{
         System.out.println(arvoreMorse.buscar("... --- ..."));
 
         System.out.println(arvoreMorse.buscar("-.-. --- -. ... . --. ..- ..") + " :)");
+
+        arvoreMorse.exibirArvore();
     }
 }
