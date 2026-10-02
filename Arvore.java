@@ -52,40 +52,45 @@ public class Arvore {
         return palavra + noAtual.getConteudo();
     }
 
-    //Obs: Não consegui fazer a árvore na horizontal
-    //Utilizei a busca Pre Ordem
+    //Utilizado percurso Pre Order
     public void exibirArvore() {
         System.out.println("*");   //Raiz como * porque não tem letra
         exibir(noRaiz, "");
     }
 
-    //Deixei o exibir como private porque só o exibirArvore vai usar ele
+    //Utilizado private por ser utilizado apenas por exibirArvore
     private void exibir(Node no, String recuo) { //Recuo espaça os níveis da árvore
         Node esquerda = no.getFilhoEsquerdo();
         Node direita = no.getFilhoDireito();
 
         if (esquerda != null) {
-            System.out.println(recuo + "--- " + esquerda.getConteudo()); //Coloca o recuo, um "galho" e a letra
+            String letraEsq = esquerda.getConteudo();
+            if (letraEsq.equals("")) {
+                letraEsq = "null";
+            }
+            System.out.println(recuo + "--- " + letraEsq); //Coloca o recuo, um branch e a letra
 
             if (direita != null) {
                 exibir(esquerda, recuo + "|   ");
-                // Se o esquerdo tem um irmão direito embaixo, os filhos dele recebem a | pra ligar no irmão, se não tem, recebem só espaços
+                // Se irmão direito, usa |
             } else {
                 exibir(esquerda, recuo + "    ");
+                //Se não tem irmão direito, usa espaço
             }
         }
 
         if (direita != null) {
-            System.out.println(recuo + "--- " + direita.getConteudo());
+            String letraDir = direita.getConteudo();
+            if (letraDir.equals("")) {
+                letraDir = "null";
+            }
+            System.out.println(recuo + "--- " + letraDir);
             exibir(direita, recuo + "    ");       // é o último filho: sem barra
         }
 
-        //os dois ifs acima são recursivos(chama o próprio metodo)
-        // cada um imprime o filho e chama exibir() para os filhos dele
-        // EX: Imprime esq, esq, esq ... e quando não tem mais ele volta (cada nível) e faz dir
+        // Imprime o filho e chama imprimir pros filhos
+        // EX: esq, esq, esq ..., quando acaba volta e faz dir
 
-
-        //necessário fazer um tratamento para aparecer "null" em letras que não existem ao invés de espaços vazios
     }
 
 }
