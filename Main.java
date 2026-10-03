@@ -1,8 +1,9 @@
-//Nomes:
+//Nomes Integrantes:
 //    Josue Nonalaya;
 //    Mariana Schneider;
 //    Heitor Gonçalves;
 
+import java.util.Scanner;
 
 class Main{
     public static void main (String[] args){
@@ -10,6 +11,7 @@ class Main{
         Arvore arvoreMorse = new Arvore();
         arvoreMorse.inicializar();
 
+        //Adicionando cada letra na arvore
         arvoreMorse.adicionar(".-", "A");
         arvoreMorse.adicionar("-...", "B");
         arvoreMorse.adicionar("-.-.", "C");
@@ -49,12 +51,19 @@ class Main{
         arvoreMorse.adicionar("-----", "0");
 
 
-        System.out.println(arvoreMorse.buscar("..."));
-        System.out.println(arvoreMorse.buscar("---"));
-        System.out.println(arvoreMorse.buscar("... --- ..."));
 
-        System.out.println(arvoreMorse.buscar("-.-. --- -. ... . --. ..- ..") + " :)");
+        Scanner scanner = new Scanner(System.in);
 
+        System.out.println("#################### ARVORE ####################");
         arvoreMorse.exibirArvore();
+
+        System.out.println("Digite o seu codigo morse para tradução: ");
+        String codigo = scanner.nextLine();
+
+        System.out.println("\n MORSE: " + codigo);
+        System.out.println("TRADUÇÃO: " + arvoreMorse.buscar(codigo));
+
+
+
     }
 }

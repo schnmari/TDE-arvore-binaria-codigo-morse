@@ -1,12 +1,15 @@
 public class Node {
 
+    //ATRIBUTOS
     private String conteudo = "";
     private Node filhoEsquerdo;
     private Node filhoDireito;
 
+    //COSNTRUTOR
     public Node(){
     }
 
+    //GETTERS e SETTERS
     public String getConteudo() {
         return conteudo;
     }

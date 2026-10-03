@@ -1,13 +1,18 @@
 public class Arvore {
 
+    //ATRIBUTOS
     private Node noRaiz;
 
+    //CONSTRUTOR
     public Arvore(){
     }
 
+    //METODOS
     public void inicializar(){
         this.noRaiz = new Node();
     }
+
+    //Adiciona elementos na arvore
     public void adicionar(String morse, String conteudo){
 
         Node noAtual = noRaiz;
@@ -30,6 +35,8 @@ public class Arvore {
         }
         noAtual.setConteudo(conteudo);
     }
+
+    //Busca cada simbolo, seguindo cada char separado da string do input
     public String buscar(String morse){
         Node noAtual = noRaiz;
 
@@ -94,17 +101,3 @@ public class Arvore {
     }
 
 }
-
-/*
-//    // METODOS GERAIS - tentando criar toda a arvore automaticamente
-//    public void criarArvoreAlfabeto(){
-//        String[] lista= {"A","B","C","D","E","F","G","H","I","J",
-//                "K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z",
-//                "0","1","2","3","4","5","6","7","8","9"};
-//
-//        for (String letra: lista){
-//            //noRaiz.adicionar(letra);
-//        }
-//    }
-
- */
